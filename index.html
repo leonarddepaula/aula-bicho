@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-
     <title>Teste Aula Bicho</title>
+
+    <!-- Biblioteca A-Frame -->
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
   </head>
   <body>
     <a-scene>
+      <!-- Pré-carregamento de ativos -->
       <a-assets>
-        <a-asset-item id="glbModel" src="/cadeiras.glb"></a-asset-item>
+        <!-- Caminho relativo do modelo GLB -->
+        <a-asset-item id="glbModel" src="cadeiras.glb"></a-asset-item>
       </a-assets>
 
+      <!-- Modelo 3D -->
       <a-gltf-model
         src="#glbModel"
-        position="0 0 0"
+        position="0 0 -3"
         scale="1 1 1"
+        rotation="0 180 0"
       ></a-gltf-model>
+
+      <!-- Adicionando câmera e luz para visualização adequada -->
+      <a-entity light="type: ambient; color: #ffffff; intensity: 0.8"></a-entity>
+      <a-entity light="type: directional; color: #ffffff; intensity: 0.6" position="1 1 1"></a-entity>
+      <a-entity camera position="0 1.6 0"></a-entity>
     </a-scene>
   </body>
 </html>
